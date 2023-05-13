@@ -1,0 +1,26 @@
+	?what is embededsystym #	
+	نظام يتم تصميمه لاداء وظيفه معينة نراه في اغلب تكنولجيا اليوم .
+ 
+ Microcontrolles vs microprocesssor#
+	microcontroller:يحتوي بداخله علي ال microprocessorويتم توصيله مع عدةmodulesو(peripherals) لاداء وظائف معينة  ويمكن تشبيهه 	بالmother board.
+	processor:يقوم ببعض العمليات الرياضية والمنطقية وتتواصل مع اطراف خارجية.  
+
+ 
+	 type of embeded systyms:
+	1-(SOC)نظام غير قابل للبرمجة له هاردوير ثابت يمكن وضعه علي شريحه واحده 	 		 		 
+	2- نظام قابل للبرمجه ويمكن التعديل علي جزء الهاردوير مثل :اي نظام يحتوي عليMCاو FPGA	
+ 	note:
+	MC:ادائهم يكون سوفت وير اثناء عمل النظام 
+	FPGA: يكون اداءها سوفت وير قبل تشغيل النظام ثم تعمل هاردوير اثناء النظام  
+	
+cosider the following when you design embeded systym:
+
+1-processing speed.
+2-size of memory.
+3-working environment.
+4-power consumtion.
+5-lifetime.
+6-cost.
+	 
+
+	

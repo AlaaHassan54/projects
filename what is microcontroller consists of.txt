@@ -1,0 +1,16 @@
+?what is microcontroller consists of#
+1-وحدة معالجة مركزية  cpu
+2-ذاكرة مؤقتة (sRAM) 
+3-ذاكرة دائمة (flash\EEROM) 
+4-buses 
+5-peripherals 
+ 
+Vonneumann vs Harvard#
+بنيةVonneumann:جميع الباصات يتم توصيلها بنقطة واحده بحيث عند كل نبضه يتم تنفيذ عملية واحده فقط.
+بنية  Harvard:كل عنصر يتم توصيله بباص خاص به وبالتالي خلال النبضه الواحده يمكن اجراء اكثر من عملية .
+  
+peripheral types#
+1-systym peripherals 
+2-serial peripherals 
+3- analog peripherals 
+4-Motion control peripherals
