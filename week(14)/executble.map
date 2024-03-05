@@ -1,0 +1,245 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x20000000         0x00020000         xrw
+FLASH            0x08000000         0x00080000         xr
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD main.o
+LOAD GPIO_Prog.o
+LOAD RCC_Prog.o
+LOAD SysTick_Prog.o
+LOAD start_up.o
+                0x00000400                        _MIN_SIZE_STACK = 0x400
+                0x00000200                        _MIN_SIZE_HEAP = 0x200
+                0x20020000                        _estack = (ORIGIN (RAM) + LENGTH (RAM))
+
+.isr_vector     0x08000000      0x1c4
+                0x08000000                        . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x1c4 start_up.o
+                0x08000000                Vector_Table
+ *(.isr_vector*)
+                0x080001c4                        . = ALIGN (0x4)
+
+.text           0x080001c4      0xd20
+                0x080001c4                        _stext = .
+                0x080001c4                        . = ALIGN (0x4)
+ *(.text)
+ .text          0x080001c4       0x40 main.o
+                0x080001c4                main
+ .text          0x08000204      0x4ac GPIO_Prog.o
+                0x08000204                GPIO_u8PinInit
+                0x08000428                GPIO_u8SetPinValue
+                0x08000508                GPIO_u8TogglePinValue
+                0x080005d4                GPIO_u8ReadPinValue
+ .text          0x080006b0      0x5b8 RCC_Prog.o
+                0x080006b0                RCC_SetSysClock
+                0x080006f0                RCC_SetClockStatus
+                0x08000910                RCC_PLLMConfig
+                0x080009d4                RCC_AHBConfig
+                0x08000a14                RCC_APBConfig
+                0x08000a74                RCC_AHB1EnableClock
+                0x08000aa4                RCC_AHB1DisableClock
+                0x08000ad8                RCC_AHB2EnableClock
+                0x08000b08                RCC_AHB2DisableClock
+                0x08000b3c                RCC_AHB3EnableClock
+                0x08000b6c                RCC_AHB3DisableClock
+                0x08000ba0                RCC_APB1EnableClock
+                0x08000bd0                RCC_APB1DisableClock
+                0x08000c04                RCC_APB2EnableClock
+                0x08000c34                RCC_APB2DisableClock
+ .text          0x08000c68      0x1d4 SysTick_Prog.o
+                0x08000c68                SysTick_Init
+                0x08000cc8                SysTick_Delayus
+                0x08000d3c                SysTick_Delayms
+                0x08000d5c                SysTick_InterruptTimer_ms
+                0x08000dd0                SysTick_DisableInterrupt
+                0x08000dec                Systick_InterruptSetCallBack
+                0x08000e20                SysTick_Handler
+ .text          0x08000e3c       0xa8 start_up.o
+                0x08000e48                Reset_Handler
+                0x08000edc                EXTI2_IRQHandler
+                0x08000edc                TIM8_CC_IRQHandler
+                0x08000edc                DebugMon_Handler
+                0x08000edc                FMPI2C1_EV_IRQHandler
+                0x08000edc                SPI4_IRQHandler
+                0x08000edc                TIM1_CC_IRQHandler
+                0x08000edc                DMA2_Stream5_IRQHandler
+                0x08000edc                HardFault_Handler
+                0x08000edc                DMA1_Stream5_IRQHandler
+                0x08000edc                PVD_IRQHandler
+                0x08000edc                SDIO_IRQHandler
+                0x08000edc                TAMP_STAMP_IRQHandler
+                0x08000edc                PendSV_Handler
+                0x08000edc                NMI_Handler
+                0x08000edc                CAN2_RX1_IRQHandler
+                0x08000edc                EXTI3_IRQHandler
+                0x08000edc                TIM1_UP_TIM10_IRQHandler
+                0x08000edc                TIM8_UP_TIM13_IRQHandler
+                0x08000edc                I2C3_ER_IRQHandler
+                0x08000edc                EXTI0_IRQHandler
+                0x08000edc                I2C2_EV_IRQHandler
+                0x08000edc                DMA1_Stream2_IRQHandler
+                0x08000edc                CAN1_RX0_IRQHandler
+                0x08000edc                FPU_IRQHandler
+                0x08000edc                OTG_HS_WKUP_IRQHandler
+                0x08000edc                UsageFault_Handler
+                0x08000edc                CAN2_SCE_IRQHandler
+                0x08000edc                DMA2_Stream2_IRQHandler
+                0x08000edc                SPI1_IRQHandler
+                0x08000edc                TIM6_DAC_IRQHandler
+                0x08000edc                TIM1_BRK_TIM9_IRQHandler
+                0x08000edc                DCMI_IRQHandler
+                0x08000edc                CAN2_RX0_IRQHandler
+                0x08000edc                DMA2_Stream3_IRQHandler
+                0x08000edc                SAI2_IRQHandler
+                0x08000edc                USART6_IRQHandler
+                0x08000edc                TIM1_TRG_COM_TIM11_IRQHandl
+                0x08000edc                USART3_IRQHandler
+                0x08000edc                RTC_Alarm_IRQHandler
+                0x08000edc                TIM8_TRG_COM_TIM14_IRQHandl
+                0x08000edc                CAN1_RX1_IRQHandler
+                0x08000edc                UART5_IRQHandler
+                0x08000edc                DMA2_Stream0_IRQHandler
+                0x08000edc                TIM4_IRQHandler
+                0x08000edc                QUADSPI_IRQHandler
+                0x08000edc                I2C1_EV_IRQHandler
+                0x08000edc                DMA1_Stream6_IRQHandler
+                0x08000edc                DMA1_Stream1_IRQHandler
+                0x08000edc                UART4_IRQHandler
+                0x08000edc                TIM3_IRQHandler
+                0x08000edc                RCC_IRQHandler
+                0x08000edc                TIM8_BRK_TIM12_IRQHandler
+                0x08000edc                Default_Handler
+                0x08000edc                CEC_IRQHandler
+                0x08000edc                EXTI15_10_IRQHandler
+                0x08000edc                ADC_IRQHandler
+                0x08000edc                DMA1_Stream7_IRQHandler
+                0x08000edc                TIM7_IRQHandler
+                0x08000edc                CAN2_TX_IRQHandler
+                0x08000edc                TIM5_IRQHandler
+                0x08000edc                DMA2_Stream7_IRQHandler
+                0x08000edc                I2C3_EV_IRQHandler
+                0x08000edc                EXTI9_5_IRQHandler
+                0x08000edc                RTC_WKUP_IRQHandler
+                0x08000edc                SPDIF_RX_IRQHandler
+                0x08000edc                SPI2_IRQHandler
+                0x08000edc                OTG_HS_EP1_IN_IRQHandler
+                0x08000edc                MemManage_Handler
+                0x08000edc                DMA1_Stream0_IRQHandler
+                0x08000edc                CAN1_TX_IRQHandler
+                0x08000edc                SVC_Handler
+                0x08000edc                FMPI2C1_ER_IRQHandler
+                0x08000edc                EXTI4_IRQHandler
+                0x08000edc                OTG_HS_EP1_OUT_IRQHandler
+                0x08000edc                WWDG_IRQHandler
+                0x08000edc                TIM2_IRQHandler
+                0x08000edc                OTG_FS_WKUP_IRQHandler
+                0x08000edc                OTG_HS_IRQHandler
+                0x08000edc                EXTI1_IRQHandler
+                0x08000edc                USART2_IRQHandler
+                0x08000edc                I2C2_ER_IRQHandler
+                0x08000edc                DMA2_Stream1_IRQHandler
+                0x08000edc                CAN1_SCE_IRQHandler
+                0x08000edc                FLASH_IRQHandler
+                0x08000edc                DMA2_Stream4_IRQHandler
+                0x08000edc                BusFault_Handler
+                0x08000edc                USART1_IRQHandler
+                0x08000edc                OTG_FS_IRQHandler
+                0x08000edc                SPI3_IRQHandler
+                0x08000edc                DMA1_Stream4_IRQHandler
+                0x08000edc                I2C1_ER_IRQHandler
+                0x08000edc                FMC_IRQHandler
+                0x08000edc                DMA2_Stream6_IRQHandler
+                0x08000edc                SAI1_IRQHandler
+                0x08000edc                DMA1_Stream3_IRQHandler
+ *(.text*)
+                0x08000ee4                        . = ALIGN (0x4)
+                0x08000ee4                        _etext = .
+
+.glue_7         0x08000ee4        0x0
+ .glue_7        0x08000ee4        0x0 linker stubs
+
+.glue_7t        0x08000ee4        0x0
+ .glue_7t       0x08000ee4        0x0 linker stubs
+
+.vfp11_veneer   0x08000ee4        0x0
+ .vfp11_veneer  0x08000ee4        0x0 linker stubs
+
+.v4_bx          0x08000ee4        0x0
+ .v4_bx         0x08000ee4        0x0 linker stubs
+
+.iplt           0x08000ee4        0x0
+ .iplt          0x08000ee4        0x0 main.o
+
+.rodata         0x08000ee4        0x4
+                0x08000ee4                        _srodata = .
+                0x08000ee4                        . = ALIGN (0x4)
+ *(.rodata)
+ .rodata        0x08000ee4        0x4 start_up.o
+                0x08000ee4                MSP_value
+ *(.rodata*)
+                0x08000ee8                        . = ALIGN (0x4)
+                0x08000ee8                        _erodata = .
+                0x08000ee8                        _sidata = LOADADDR (.data)
+
+.rel.dyn        0x08000ee8        0x0
+ .rel.iplt      0x08000ee8        0x0 main.o
+
+.data           0x20000000        0x0 load address 0x08000ee8
+                0x20000000                        _sdata = .
+                0x20000000                        . = ALIGN (0x4)
+ *(.data)
+ .data          0x20000000        0x0 main.o
+ .data          0x20000000        0x0 GPIO_Prog.o
+ .data          0x20000000        0x0 RCC_Prog.o
+ .data          0x20000000        0x0 SysTick_Prog.o
+ .data          0x20000000        0x0 start_up.o
+ *(.data*)
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _edata = .
+
+.igot.plt       0x20000000        0x0 load address 0x08000ee8
+ .igot.plt      0x20000000        0x0 main.o
+
+.bss            0x20000000        0x8 load address 0x08000ee8
+                0x20000000                        _sbss = .
+                0x20000000                        . = ALIGN (0x4)
+ *(.bss)
+ .bss           0x20000000        0x0 main.o
+ .bss           0x20000000        0x0 GPIO_Prog.o
+ .bss           0x20000000        0x0 RCC_Prog.o
+ .bss           0x20000000        0x8 SysTick_Prog.o
+ .bss           0x20000008        0x0 start_up.o
+ *(.bss*)
+                0x20000008                        . = ALIGN (0x4)
+                0x20000008                        _ebss = .
+OUTPUT(alaa.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x00000000       0x44
+ .comment       0x00000000       0x44 main.o
+                                 0x45 (size before relaxing)
+ .comment       0x00000044       0x45 GPIO_Prog.o
+ .comment       0x00000044       0x45 RCC_Prog.o
+ .comment       0x00000044       0x45 SysTick_Prog.o
+ .comment       0x00000044       0x45 start_up.o
+
+.ARM.attributes
+                0x00000000       0x2e
+ .ARM.attributes
+                0x00000000       0x2e main.o
+ .ARM.attributes
+                0x0000002e       0x2e GPIO_Prog.o
+ .ARM.attributes
+                0x0000005c       0x2e RCC_Prog.o
+ .ARM.attributes
+                0x0000008a       0x2e SysTick_Prog.o
+ .ARM.attributes
+                0x000000b8       0x2e start_up.o
