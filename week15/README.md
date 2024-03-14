@@ -5,10 +5,6 @@ Embedded C Baremetal Software Development on STM32F103C8
 ![image](https://github.com/AlaaHassan54/projects/assets/133440468/7fbe8b6a-b61c-4968-a89b-bdd3c61b87ef)
 
 
-## Reference:
-STM32F103C8T6 datasheet
-
-https://www.st.com/resource/en/datasheet/stm32f103c8.pdf
 ## overview:
 
  The project involves developing firmware for the STM32F103C8 microcontroller in Embedded C without using any operating system (bare-metal). The functionalities described in the provided video will be implemented using the microcontroller's peripherals such as GPIO, lcd, etc.
