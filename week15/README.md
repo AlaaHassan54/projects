@@ -2,6 +2,8 @@
 # Project Title:
 
 Embedded C Baremetal Software Development on STM32F103C8
+![image](https://github.com/AlaaHassan54/projects/assets/133440468/7fbe8b6a-b61c-4968-a89b-bdd3c61b87ef)
+
 
 ## Reference:
 STM32F103C8T6 datasheet
@@ -45,10 +47,15 @@ main.c
     - Define memory regions such as FLASH (for program code), RAM, and any other relevant sections.
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![lcd_project](https://github.com/AlaaHassan54/projects/assets/133440468/b07088db-312e-41f5-9001-d4343ad4f175)
+
 
 
 ## Demo
 
-Insert gif or link to demo
+
+
+https://github.com/AlaaHassan54/projects/assets/133440468/07588c39-593d-436c-a190-44dd5628d21d
+
+
 
